@@ -19,7 +19,7 @@ module CanCan
       def self.matches_conditions_hash?(subject, conditions)
         # To avoid hitting the db, retrieve the raw Mongo selector from
         # the Mongoid Criteria and use Mongoid::Matchers#matches?
-        subject.matches?(subject.class.where(conditions).selector)
+        subject._matches?(subject.class.where(conditions).selector)
       end
 
       def database_records
